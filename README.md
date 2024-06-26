@@ -58,7 +58,17 @@ We recommend spending up to four hours on this assignment. If you don't get ever
 
 ## Usage
 
+This is a simple comments feed application to add the real time comments built using the CRA. The goal is to demonstrate how to build an application, and integrate with backend api to save & rerieve comments. Includes state management, TypeScript, and more.
+
 ### Run in Development
+
+To get started with the project, follow these steps:
+
+1. Clone the repository to your local machine.
+2. Install the necessary dependencies using the `npm install` command.
+3. Start the applications using the `npm run dev` command.
+4. Explore the application at `http://localhost:3000`
+5. To build the files for production, run `npm run build`
 
 ```
 $ npm install
