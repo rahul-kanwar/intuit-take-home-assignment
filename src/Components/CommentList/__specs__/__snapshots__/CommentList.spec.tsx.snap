@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CommentList Component renders correctly with new comment 1`] = `
+<DocumentFragment>
+  .c1 {
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0;
+}
+
+.c0 {
+  border-top: 1px solid #ccc;
+  padding-top: 20px;
+}
+
+<div
+    class="c0"
+  >
+    <div
+      class="c1"
+    >
+      <h4>
+        New User
+      </h4>
+      <p>
+        This is a new comment
+      </p>
+      <small>
+        06/26/2024, 12:35 PM
+      </small>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`CommentList Component renders correctly without new comment 1`] = `
+<DocumentFragment>
+  .c0 {
+  border-top: 1px solid #ccc;
+  padding-top: 20px;
+}
+
+<div
+    class="c0"
+  />
+</DocumentFragment>
+`;

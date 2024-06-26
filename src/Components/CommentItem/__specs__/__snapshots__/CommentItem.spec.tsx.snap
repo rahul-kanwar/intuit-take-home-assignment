@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CommentItem Component renders correctly with invalid date 1`] = `
+<DocumentFragment>
+  .c0 {
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0;
+}
+
+<div
+    class="c0"
+  >
+    <h4>
+      Jane Doe
+    </h4>
+    <p>
+      This comment has an invalid date
+    </p>
+    <small>
+      Invalid date
+    </small>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`CommentItem Component renders correctly with valid date 1`] = `
+<DocumentFragment>
+  .c0 {
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0;
+}
+
+<div
+    class="c0"
+  >
+    <h4>
+      John Doe
+    </h4>
+    <p>
+      This is a test comment
+    </p>
+    <small>
+      06/26/2024, 10:35 AM
+    </small>
+  </div>
+</DocumentFragment>
+`;

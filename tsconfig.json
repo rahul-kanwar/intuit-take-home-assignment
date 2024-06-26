@@ -3,8 +3,8 @@
     "target": "es5",
     "lib": [
       "dom",
-      "dom.iterable",
-      "esnext"
+      "es2015", 
+      "es2017"
     ],
     "allowJs": true,
     "skipLibCheck": true,
@@ -22,5 +22,10 @@
   },
   "include": [
     "src"
+  ],
+  "exclude": [
+    "node_modules",                            // Exclude node_modules folder from the compilation
+    "**/*.test.ts",                            // Exclude test files
+    "**/*.test.tsx"                            // Exclude test files
   ]
 }

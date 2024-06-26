@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CommentForm Component renders correctly 1`] = `
+<DocumentFragment>
+  .c0 {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.c1 {
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.c2 {
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.c3 {
+  padding: 10px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+<form
+    class="c0"
+  >
+    <input
+      class="c1"
+      placeholder="Name"
+      required=""
+      type="text"
+      value=""
+    />
+    <textarea
+      class="c2"
+      placeholder="Comment"
+      required=""
+      rows="10"
+    />
+    <button
+      class="c3"
+      type="submit"
+    >
+      Add Comment
+    </button>
+  </form>
+</DocumentFragment>
+`;

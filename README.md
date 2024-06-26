@@ -1,46 +1,66 @@
-# Getting Started with Create React App
+# Front-end Choose Your Own Adventure Take-Home
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Design and build a comments feed that displays all comments and notifies a user in real-time when new comments are added.
 
-## Available Scripts
+Here is the data schema for a Comment:
+* id: INTEGER
+* name: TEXT
+* created: DATETIME
+* message: TEXT
 
-In the project directory, you can run:
+Here are the API endpoints:
+* Create a comment: /createComment (POST)
+* Retrieve all comments: /getComments (GET)
+* Retrieve a comment: /getComment (GET)
+* Delete all comments: /deleteComments (DELETE)
+  * This is useful for purging data
 
-### `yarn start`
+This is a basic wireframe, you can change the layout. While you won't be screened as a product designer, make sure you build a good user experience. If you decide to use a third-party design system, be prepared to discuss your decision.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+![Basic wireframe](wireframe.png)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Please write unit tests and handle errors where you see fit.
 
-### `yarn test`
+## Engineering Style
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+We do not expect you to have expertise in all the topics that encapsulate front-end web development. We recognize that some folks are specialists and others are generalists!
 
-### `yarn build`
+### Specialist
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+If there's a particular topic you enjoy, you can focus your assignment solution on that!
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Some examples include:
+* Performance optimizations
+* Accessibility
+* Integration testing
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Generalist
 
-### `yarn eject`
+If you're a generalist, you can focus more on building the minimum viable product described above with the wireframe!
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Interview Details
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+We have already set up an API client for a Node Express server that stores comments in SQLite.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+You have the option of doing the assignment with or without a front-end JS framework.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+If you decide to use a framework, we recommend the following boilerplates:
+* [facebook/create-react-app](https://github.com/facebook/create-react-app)
+* [vuejs/vue-cli](https://github.com/vuejs/vue-cli)
+* [angular/angular-cli](https://github.com/angular/angular-cli)
+* [ember-cli/ember-cli](https://github.com/ember-cli/ember-cli)
 
-## Learn More
+Be prepared to have a discussion about your implementation. Here are some example discussion questions:
+* How can you optimize fetching new comments in real-time?
+* Are there any restrictions we should place on the comment input?
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+We recommend spending up to four hours on this assignment. If you don't get every piece you hoped completed done in the timeframe, that's alright! We'll be having an hour long discussion on your thought processes and where you might spend more time, and that discussion is a key part of our evaluation!
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Usage
+
+### Run in Development
+
+```
+$ npm install
+$ npm run dev
+```
