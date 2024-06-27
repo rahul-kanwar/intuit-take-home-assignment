@@ -16,7 +16,9 @@ export const getComments = async (): Promise<Comment[]> => {
   return response.data;
 };
 
-export const createComment = async (comment: Omit<Comment, 'id'>): Promise<Comment> => {
+export const createComment = async (
+  comment: Omit<Comment, 'id'>
+): Promise<Comment> => {
   const response = await apiClient.post('/createComment', comment);
   return response.data;
 };

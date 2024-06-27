@@ -1,9 +1,9 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
+
 import 'jest-styled-components';
 import { Comment } from '../../../api';
 import CommentItem from '../CommentItem';
-
 
 // Mock comment data
 const mockComment: Comment = {
@@ -27,7 +27,9 @@ describe('CommentItem Component', () => {
   });
 
   it('renders correctly with invalid date', () => {
-    const { asFragment } = render(<CommentItem comment={mockInvalidDateComment} />);
+    const { asFragment } = render(
+      <CommentItem comment={mockInvalidDateComment} />
+    );
     expect(asFragment()).toMatchSnapshot();
   });
 
@@ -41,7 +43,9 @@ describe('CommentItem Component', () => {
   it('displays "Invalid date" with invalid date', () => {
     render(<CommentItem comment={mockInvalidDateComment} />);
     expect(screen.getByText('Jane Doe')).toBeInTheDocument();
-    expect(screen.getByText('This comment has an invalid date')).toBeInTheDocument();
+    expect(
+      screen.getByText('This comment has an invalid date')
+    ).toBeInTheDocument();
     expect(screen.getByText('Invalid date')).toBeInTheDocument();
   });
 });

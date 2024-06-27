@@ -1,9 +1,9 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
+
 import 'jest-styled-components';
 import CommentList from '../CommentList';
-import { Comment } from '../../../api';
-
+import { Comment, getComments as mockGetComments } from '../../../api';
 
 // Mock comments data
 const mockComments: Comment[] = [
@@ -21,29 +21,47 @@ const mockComments: Comment[] = [
   },
 ];
 
+// Mock the getComments function
+jest.mock('../../../api', () => ({
+  getComments: jest.fn(),
+}));
+
 describe('CommentList Component', () => {
-  it('renders correctly without new comment', () => {
-    const { asFragment } = render(<CommentList newComment={null} />);
-    expect(asFragment()).toMatchSnapshot();
+  beforeEach(() => {
+    (mockGetComments as jest.Mock).mockResolvedValue(mockComments);
   });
 
-  it('renders correctly with new comment', () => {
+  it('renders correctly with initial comments', async () => {
+    const { asFragment } = render(<CommentList newComment={null} />);
+    expect(asFragment()).toMatchSnapshot();
+
+    // Wait for the comments to be rendered
+    const johnDoeElement = await screen.findByText('John Doe');
+    const janeDoeElement = await screen.findByText('Jane Doe');
+
+    expect(johnDoeElement).toBeInTheDocument();
+    expect(janeDoeElement).toBeInTheDocument();
+  });
+
+  it('renders correctly with new comment', async () => {
     const newComment: Comment = {
       id: 3,
       name: 'New User',
       message: 'This is a new comment',
-      created: '2024-06-26 12:35:42',
+      created: '2024-06-26T22:55:07.947Z',
     };
-    const { asFragment } = render(<CommentList newComment={newComment} />);
-    expect(asFragment()).toMatchSnapshot();
-  });
 
-  it('displays the list of comments', () => {
-    render(<CommentList newComment={null} />);
-    mockComments.forEach(comment => {
-      expect(screen.getByText(comment.name)).toBeInTheDocument();
-      expect(screen.getByText(comment.message)).toBeInTheDocument();
-      expect(screen.getByText(/6\/26\/2024/)).toBeInTheDocument();
-    });
+    const { asFragment } = render(<CommentList newComment={newComment} />);
+
+    // Wait for the comments to be rendered using findByText
+    const johnDoeElement = await screen.findByText('John Doe');
+    const janeDoeElement = await screen.findByText('Jane Doe');
+    const newUserElement = await screen.findByText('New User');
+
+    expect(johnDoeElement).toBeInTheDocument();
+    expect(janeDoeElement).toBeInTheDocument();
+    expect(newUserElement).toBeInTheDocument();
+
+    expect(asFragment()).toMatchSnapshot();
   });
 });

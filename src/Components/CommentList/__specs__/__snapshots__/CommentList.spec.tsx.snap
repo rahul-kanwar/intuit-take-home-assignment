@@ -1,5 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`CommentList Component renders correctly with initial comments 1`] = `
+<DocumentFragment>
+  .c0 {
+  border-top: 1px solid #ccc;
+  padding-top: 20px;
+}
+
+<div
+    class="c0"
+  />
+</DocumentFragment>
+`;
+
 exports[`CommentList Component renders correctly with new comment 1`] = `
 <DocumentFragment>
   .c1 {
@@ -25,22 +38,35 @@ exports[`CommentList Component renders correctly with new comment 1`] = `
         This is a new comment
       </p>
       <small>
-        06/26/2024, 12:35 PM
+        06/26/2024, 6:55 PM
+      </small>
+    </div>
+    <div
+      class="c1"
+    >
+      <h4>
+        Jane Doe
+      </h4>
+      <p>
+        Another test comment
+      </p>
+      <small>
+        06/26/2024, 11:35 AM
+      </small>
+    </div>
+    <div
+      class="c1"
+    >
+      <h4>
+        John Doe
+      </h4>
+      <p>
+        This is a test comment
+      </p>
+      <small>
+        06/26/2024, 10:35 AM
       </small>
     </div>
   </div>
-</DocumentFragment>
-`;
-
-exports[`CommentList Component renders correctly without new comment 1`] = `
-<DocumentFragment>
-  .c0 {
-  border-top: 1px solid #ccc;
-  padding-top: 20px;
-}
-
-<div
-    class="c0"
-  />
 </DocumentFragment>
 `;

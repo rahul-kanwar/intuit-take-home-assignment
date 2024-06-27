@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import styled from 'styled-components';
+import io from 'socket.io-client';
+
 import CommentForm from './Components/CommentForm/CommentForm';
 import CommentList from './Components/CommentList/CommentList';
 import Notification from './Components/Notification/Notification';
-import styled from 'styled-components';
 import { Comment } from './api';
-import io from 'socket.io-client';
 
 const Container = styled.div`
   max-width: 600px;
@@ -40,9 +41,14 @@ const App: React.FC = () => {
 
   return (
     <Container>
-      <h1 style={{textAlign: 'center'}}>Comments Feed</h1>
+      <h1 style={{ textAlign: 'center' }}>Comments Feed</h1>
       <CommentForm onCommentAdded={handleCommentAdded} />
-      {notification && <Notification message={notification} onClose={handleCloseNotification} />}
+      {notification && (
+        <Notification
+          message={notification}
+          onClose={handleCloseNotification}
+        />
+      )}
       <CommentList newComment={newComment} />
     </Container>
   );

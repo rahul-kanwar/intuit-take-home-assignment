@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { act } from 'react';
 import { render, waitFor, screen } from '@testing-library/react';
+
 import 'jest-styled-components';
-import { act } from 'react-dom/test-utils'; 
 import Notification from '../Notification';
 
 describe('Notification Component', () => {
   it('renders correctly', () => {
-    const { asFragment } = render(<Notification message="Test Notification" onClose={() => {}} />);
+    const { asFragment } = render(
+      <Notification message="Test Notification" onClose={() => {}} />
+    );
     expect(asFragment()).toMatchSnapshot();
   });
 
@@ -16,11 +18,19 @@ describe('Notification Component', () => {
   });
 
   it('auto-closes after 3 seconds', async () => {
+    jest.useFakeTimers();
     const mockOnClose = jest.fn();
     render(<Notification message="Test Notification" onClose={mockOnClose} />);
 
-    await waitFor(() => {
-      expect(mockOnClose).toHaveBeenCalled();
-    }, { timeout: 3000 });
+    act(() => {
+      jest.advanceTimersByTime(3000);
+    });
+
+    await waitFor(
+      () => {
+        expect(mockOnClose).toHaveBeenCalled();
+      },
+      { timeout: 3000 }
+    );
   });
 });

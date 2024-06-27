@@ -1,0 +1,252 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App Component renders correctly 1`] = `
+<DocumentFragment>
+  .c1 {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.c2 {
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.c3 {
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.c4 {
+  padding: 10px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.c6 {
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0;
+}
+
+.c5 {
+  border-top: 1px solid #ccc;
+  padding-top: 20px;
+}
+
+.c0 {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+}
+
+<div
+    class="c0"
+  >
+    <h1
+      style="text-align: center;"
+    >
+      Comments Feed
+    </h1>
+    <form
+      class="c1"
+    >
+      <input
+        class="c2"
+        placeholder="Name"
+        required=""
+        type="text"
+        value=""
+      />
+      <textarea
+        class="c3"
+        placeholder="Comment"
+        required=""
+        rows="10"
+      />
+      <button
+        class="c4"
+        type="submit"
+      >
+        Add Comment
+      </button>
+    </form>
+    <div
+      class="c5"
+    >
+      <div
+        class="c6"
+      >
+        <h4>
+          Jane Doe
+        </h4>
+        <p>
+          Another test comment
+        </p>
+        <small>
+          06/26/2024, 7:35 AM
+        </small>
+      </div>
+      <div
+        class="c6"
+      >
+        <h4>
+          John Doe
+        </h4>
+        <p>
+          This is a test comment
+        </p>
+        <small>
+          06/26/2024, 6:35 AM
+        </small>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`App Component renders correctly 2`] = `
+<DocumentFragment>
+  .c1 {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.c2 {
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.c3 {
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.c4 {
+  padding: 10px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.c7 {
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0;
+}
+
+.c6 {
+  border-top: 1px solid #ccc;
+  padding-top: 20px;
+}
+
+.c5 {
+  position: fixed;
+  top: 10px;
+  opacity: 0.8;
+  width: 320px;
+  background-color: #4caf50;
+  color: white;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.c0 {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+}
+
+<div
+    class="c0"
+  >
+    <h1
+      style="text-align: center;"
+    >
+      Comments Feed
+    </h1>
+    <form
+      class="c1"
+    >
+      <input
+        class="c2"
+        placeholder="Name"
+        required=""
+        type="text"
+        value=""
+      />
+      <textarea
+        class="c3"
+        placeholder="Comment"
+        required=""
+        rows="10"
+      />
+      <button
+        class="c4"
+        type="submit"
+      >
+        Add Comment
+      </button>
+    </form>
+    <div
+      class="c5"
+    >
+      New comment added!
+    </div>
+    <div
+      class="c6"
+    >
+      <div
+        class="c7"
+      >
+        <h4>
+          New User
+        </h4>
+        <p>
+          This is a new comment
+        </p>
+        <small>
+          06/27/2024, 3:10 AM
+        </small>
+      </div>
+      <div
+        class="c7"
+      >
+        <h4>
+          Jane Doe
+        </h4>
+        <p>
+          Another test comment
+        </p>
+        <small>
+          06/26/2024, 7:35 AM
+        </small>
+      </div>
+      <div
+        class="c7"
+      >
+        <h4>
+          John Doe
+        </h4>
+        <p>
+          This is a test comment
+        </p>
+        <small>
+          06/26/2024, 6:35 AM
+        </small>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

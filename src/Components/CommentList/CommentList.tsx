@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+
 import { getComments, Comment } from '../../api';
 import CommentItem from '../CommentItem/CommentItem';
 import { List } from './CommentList.style';
@@ -9,12 +10,14 @@ interface CommentListProps {
 
 const CommentList: React.FC<CommentListProps> = ({ newComment }) => {
   const [comments, setComments] = useState<Comment[]>([]);
+  const [isRepeatRender, setIsRepeatRender] = useState<boolean>(false);
 
   useEffect(() => {
     const fetchComments = async () => {
       try {
         const data = await getComments();
         setComments(data);
+        setIsRepeatRender(true);
       } catch (error) {
         console.error('Failed to fetch comments', error);
       }
@@ -23,16 +26,18 @@ const CommentList: React.FC<CommentListProps> = ({ newComment }) => {
   }, []);
 
   useEffect(() => {
-    if (newComment) {
-      setComments((prevComments) => [...prevComments, newComment]);
+    if (newComment && isRepeatRender) {
+      setComments(prevComments => [...prevComments, newComment]);
     }
-  }, [newComment]);
+  }, [newComment, isRepeatRender]);
 
   return (
     <List>
-      {comments.sort((a: Comment,b: Comment)=> b.id-a.id).map((comment) => (
-        <CommentItem key={comment.id} comment={comment} />
-      ))}
+      {comments
+        .sort((a: Comment, b: Comment) => b.id - a.id)
+        .map(comment => (
+          <CommentItem key={comment.id} comment={comment} />
+        ))}
     </List>
   );
 };

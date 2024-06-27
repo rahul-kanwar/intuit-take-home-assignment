@@ -3,3 +3,11 @@
 // expect(element).toHaveTextContent(/react/i)
 // learn more: https://github.com/testing-library/jest-dom
 import '@testing-library/jest-dom';
+
+(global as any).setImmediate = (
+  callback: (...args: any[]) => void,
+  ...args: any[]
+) => {
+  return setTimeout(callback, 0, ...args);
+};
+(global as any).XMLHttpRequest = require('xmlhttprequest-ssl').XMLHttpRequest;

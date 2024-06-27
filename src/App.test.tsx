@@ -1,12 +1,14 @@
 import React from 'react';
 import { render, waitFor, fireEvent, screen } from '@testing-library/react';
 import 'jest-styled-components';
-import axios from 'axios';
-import MockAdapter from 'axios-mock-adapter';
-import App from './App';
-import { Comment } from './api';
+import { format } from 'date-fns';
 
-const mock = new MockAdapter(axios);
+import App from './App';
+import {
+  Comment,
+  getComments as mockGetComments,
+  createComment as mockPostComments,
+} from './api';
 
 // Mock comments data
 const mockComments: Comment[] = [
@@ -24,27 +26,47 @@ const mockComments: Comment[] = [
   },
 ];
 
-describe('App Component', () => {
-  it('renders correctly', async () => {
-    mock.onGet('/getComments').reply(200, mockComments);
+const mockNewComment: Comment = {
+  id: 3,
+  name: 'New User',
+  message: 'This is a new comment',
+  created: '2024-06-26T12:35:42.457Z',
+};
 
+// Mock the api functions
+jest.mock('./api', () => ({
+  getComments: jest.fn(),
+  createComment: jest.fn(),
+}));
+
+describe('App Component', () => {
+  beforeEach(() => {
+    (mockGetComments as jest.Mock).mockResolvedValue(mockComments);
+    (mockPostComments as jest.Mock).mockResolvedValue(mockNewComment);
+  });
+  it('renders correctly', async () => {
     const { asFragment } = render(<App />);
 
     await waitFor(() => {
       mockComments.forEach(comment => {
         expect(screen.getByText(comment.name)).toBeInTheDocument();
         expect(screen.getByText(comment.message)).toBeInTheDocument();
-        expect(screen.getByText(/6\/26\/2024/)).toBeInTheDocument();
+        expect(
+          screen.getByText(format(new Date(comment.created), 'Pp'))
+        ).toBeInTheDocument();
       });
     });
 
     expect(asFragment()).toMatchSnapshot();
 
     // Add a new comment
-    fireEvent.change(screen.getByPlaceholderText('Name'), { target: { value: 'New User' } });
-    fireEvent.change(screen.getByPlaceholderText('Comment'), { target: { value: 'This is a new comment' } });
+    fireEvent.change(screen.getByPlaceholderText('Name'), {
+      target: { value: 'New User' },
+    });
+    fireEvent.change(screen.getByPlaceholderText('Comment'), {
+      target: { value: 'This is a new comment' },
+    });
     fireEvent.click(screen.getByText('Add Comment'));
-
 
     await waitFor(() => {
       expect(screen.getByText('New User')).toBeInTheDocument();

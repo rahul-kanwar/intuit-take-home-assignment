@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+
 import { NotificationContainer } from './Notification.style';
 
 interface NotificationProps {

@@ -1,0 +1,22 @@
+# Ignore node_modules directory
+node_modules/
+
+# Ignore build directory
+build/
+
+# Ignore coverage directory
+coverage/
+
+# Ignore all JavaScript and TypeScript files in the dist directory
+dist/**/*.js
+dist/**/*.ts
+
+# Ignore specific configuration files
+/*.config.js
+/*.config.ts
+
+# Ignore server files
+server/
+
+# Ignore generated files
+public/

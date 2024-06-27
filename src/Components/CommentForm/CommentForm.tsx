@@ -1,4 +1,5 @@
 import React, { useState, ChangeEvent, FormEvent } from 'react';
+
 import { createComment, Comment } from '../../api';
 import { Form, Input, TextArea, Button } from './CommentForm.style';
 
@@ -13,9 +14,13 @@ const CommentForm: React.FC<CommentFormProps> = ({ onCommentAdded }) => {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     try {
-      const newComment: Omit<Comment, 'id'> = { name, message, created: new Date().toISOString() };
+      const newComment: Omit<Comment, 'id'> = {
+        name,
+        message,
+        created: new Date().toISOString(),
+      };
       const addedComment = await createComment(newComment);
-      onCommentAdded({...addedComment, ...newComment});
+      onCommentAdded({ ...addedComment, ...newComment });
       setName('');
       setMessage('');
     } catch (error) {
@@ -36,7 +41,9 @@ const CommentForm: React.FC<CommentFormProps> = ({ onCommentAdded }) => {
         placeholder="Comment"
         value={message}
         rows={10}
-        onChange={(e: ChangeEvent<HTMLTextAreaElement>) => setMessage(e.target.value)}
+        onChange={(e: ChangeEvent<HTMLTextAreaElement>) =>
+          setMessage(e.target.value)
+        }
         required
       />
       <Button type="submit">Add Comment</Button>
